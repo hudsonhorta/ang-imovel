@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://ang-imovel-api.herokuapp.com",
+    "target": "https://ang-imovel-api.herokuapp.com",
     "secure": true,
     "pathRewrite": {
       "^/api": ""

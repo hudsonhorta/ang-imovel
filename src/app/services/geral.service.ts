@@ -8,13 +8,13 @@ import { catchError, Observable, retry, throwError } from 'rxjs';
 export class GeralService {
 
   apiUrl = "";
-  url = 'http://ang-imovel-api.herokuapp.com/cidades'
+  url = 'https://ang-imovel-api.herokuapp.com/cidades'
 
   constructor(
     private httpclient: HttpClient
   ) {
     if (window.location.hostname != "localhost") {
-      this.apiUrl = "http://ang-imovel-api.herokuapp.com/"
+      this.apiUrl = "https://ang-imovel-api.herokuapp.com/"
     } else {
       this.apiUrl = "api/"
     }
@@ -27,10 +27,9 @@ export class GeralService {
 
   // get
   getCidades(): Observable<any> {
-    let routeModuleApi = "ang-imovel-api.herokuapp.com/"
+    let routeModuleApi = ""
     let UrlBASE = "cidades";
     this.url = this.apiUrl + routeModuleApi + UrlBASE
-    this.url = 'https://ang-imovel-api.herokuapp.com/cidades'
 
     return this.httpclient.get<any>(this.url)
     .pipe(
