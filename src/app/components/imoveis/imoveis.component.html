@@ -1,0 +1,270 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Cadastro de Imóveis</h1>
+</div>
+
+<div class="row">
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+              Imóveis Cadastrados</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-success shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+              para Venda</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-info shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+              para Aluguel
+            </div>
+            <div class="row no-gutters align-items-center">
+              <div class="col-auto">
+                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">30</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-warning shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+              para Temporadas
+            </div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-comments fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Botões  -->
+
+<div class="row">
+  <div class="col-10"></div>
+  <div class="col-2 text-right">
+    <button class="btn btn-primary" (click)="novoImovel()">Novo Imóvel</button>
+  </div>
+</div>
+
+<br>
+
+<!-- Formulario -->
+<div class="card shadow mb-4" *ngIf="mostraFormulario">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Incluir novo Imóvel</h6>
+  </div>
+  <div class="card-body">
+    <form class="user">
+      <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <label for="titulo">Título</label>
+          <input type="text" class="form-control" name="titulo" id="titulo">
+        </div>
+        <div class="col-sm-3">
+          <label for="codigo">Código Referência</label>
+          <input type="text" class="form-control" name="codigo" id="codigo">
+        </div>
+        <div class="col-sm-3">
+          <label for="mostraSite">Mostra no Site</label>
+          <select class="form-control" name="mostraSite" id="mostraSite">
+            <option value="S">Sim</option>
+            <option value="N">Não</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-3">
+          <label for="finalidade">Finalidade</label>
+          <select class="form-control" name="finalidade" id="finalidade">
+            <option value="X">Selecione</option>
+            <option value="V">Venda</option>
+            <option value="A">Aluguel</option>
+            <option value="T">Temporada</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <label for="tipo">Tipo</label>
+          <select class="form-control" name="tipo" id="tipo">
+            <option value="0">Selecione</option>
+            <option value="1">Apartamento</option>
+            <option value="2">Barracão</option>
+            <option value="23">Casa</option>
+            <option value="5">Edícula</option>
+            <option value="6">Fazenda</option>
+            <option value="31">Flat</option>
+            <option value="8">Mercado</option>
+            <option value="22">Salão Comercial</option>
+            <option value="33">Sitio</option>
+            <option value="32">Sobrado</option>
+            <option value="18">Terreno</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <label for="cidade">Cidade</label>
+          <select class="form-control" name="cidade" id="cidade">
+            <option value="0">Selecione</option>
+            <option value="77">Acre / AC</option>
+            <option value="9">Américo Brasiliense / SP</option>
+            <option value="83">Angra dos Reis / RJ</option>
+            <option value="8">Araraquara / SP</option>
+            <option value="99">Armação dos Búzios / RJ</option>
+            <option value="89">BARIRI / SP</option>
+            <option value="67">Bastos / SP</option>
+            <option value="80">Camaçari / BA</option>
+            <option value="94">Camboriu / SC</option>
+            <option value="106">Campina Grande do Sul / PR</option>
+            <option value="79">Campinas / SP</option>
+            <option value="69">Caraguatatuba / SP</option>
+            <option value="104">Caxias do Sul / SP</option>
+            <option value="92">Cuiabá / MT</option>
+            <option value="100">Curitiba / PR</option>
+            <option value="108">garanhuns / PE</option>
+            <option value="112">Guarantã do Norte / MT</option>
+            <option value="54">Guarujá / SP</option>
+            <option value="86">Igarapé / MG</option>
+            <option value="71">Ilha Bela / SP</option>
+            <option value="74">Indaiatuba / SP</option>
+            <option value="103">JACAREI / SP</option>
+            <option value="76">Juazeiro / BA</option>
+            <option value="113">Juiz de fora / MG</option>
+            <option value="109">Lajedo / PE</option>
+            <option value="87">Limeira / SP</option>
+            <option value="97">Macae / RJ</option>
+            <option value="50">Osasco / SP</option>
+            <option value="95">Paulista / PE</option>
+            <option value="75">Petrolina / PE</option>
+            <option value="82">Resende / RJ</option>
+            <option value="96">Rio de Janeiro / RJ</option>
+            <option value="107">SÃO JOÃO NEPOMUCENO / MG</option>
+            <option value="85">São Leopoldo / RS</option>
+            <option value="105">São Paulo / SP</option>
+            <option value="70">São Sebastião / SP</option>
+            <option value="68">Ubatuba / SP</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+            <label for="bairro">Bairro</label>
+            <select class="form-control" name="bairro" id="bairro">
+              <option value="0">Selecione a Cidade</option>
+            </select>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+            placeholder="Password">
+        </div>
+        <div class="col-sm-6">
+          <input type="password" class="form-control form-control-user" id="exampleRepeatPassword"
+            placeholder="Repeat Password">
+        </div>
+      </div>
+      <a href="login.html" class="btn btn-primary btn-user btn-block">
+        Register Account
+      </a>
+      <hr>
+      <a href="index.html" class="btn btn-google btn-user btn-block">
+        <i class="fab fa-google fa-fw"></i> Register with Google
+      </a>
+      <a href="index.html" class="btn btn-facebook btn-user btn-block">
+        <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+      </a>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- DataTales  -->
+<div class="card shadow mb-4" *ngIf="mostraTabela">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Lista de Imóveis</h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Foto</th>
+            <th>Finalidade</th>
+            <th>Tipo</th>
+            <th>Cidade</th>
+            <th>Bairro</th>
+            <th>Valor</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>00554</td>
+            <td><img class="picImovel" src="../../../assets/imovel/lista00554.png" alt=""></td>
+            <td>Aluguel</td>
+            <td>Apartamento</td>
+            <td>Araraquara/SP</td>
+            <td>Vila Santa Terezinha</td>
+            <td>R$ 300.000,00</td>
+            <td>2 quartos, banheiro, wi-fi</td>
+          </tr>
+          <tr>
+            <td>0214</td>
+            <td><img class="picImovel" src="../../../assets/imovel/lista0214.png" alt=""></td>
+            <td>Temporada</td>
+            <td>Mercado</td>
+            <td>São Paulo/SP</td>
+            <td>Lapa</td>
+            <td>R$ 47.858,58</td>
+            <td>Muito grande</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
