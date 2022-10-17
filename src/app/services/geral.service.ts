@@ -22,7 +22,10 @@ export class GeralService {
 
   // Headers
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'GET',
+    'Access-Control-Allow-Origin': '*' })
   }
 
   // get
@@ -31,7 +34,7 @@ export class GeralService {
     let UrlBASE = "cidades";
     this.url = this.apiUrl + routeModuleApi + UrlBASE
 
-    return this.httpclient.get<any>(this.url)
+    return this.httpclient.get<any>(this.url, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError)
