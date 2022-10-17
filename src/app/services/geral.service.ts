@@ -30,7 +30,7 @@ export class GeralService {
     let routeModuleApi = "ang-imovel-api.herokuapp.com/"
     let UrlBASE = "cidades";
     this.url = this.apiUrl + routeModuleApi + UrlBASE
-    this.url = 'http://ang-imovel-api.herokuapp.com/cidades'
+    this.url = 'https://ang-imovel-api.herokuapp.com/cidades'
 
     return this.httpclient.get<any>(this.url)
     .pipe(
