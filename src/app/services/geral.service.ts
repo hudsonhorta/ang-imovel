@@ -32,7 +32,7 @@ export class GeralService {
   getCidades(): Observable<any> {
     let routeModuleApi = ""
     let UrlBASE = "cidades";
-    this.url = this.apiUrl + routeModuleApi + UrlBASE
+//    this.url = this.apiUrl + routeModuleApi + UrlBASE
 
     return this.httpclient.get<any>(this.url, this.httpOptions)
     .pipe(
