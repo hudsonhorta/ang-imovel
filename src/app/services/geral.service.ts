@@ -8,7 +8,7 @@ import { catchError, Observable, retry, throwError } from 'rxjs';
 export class GeralService {
 
   apiUrl = "api/";
-  url = 'https://ang-imovel-api.herokuapp.com/cidades'
+  url = 'https://ang-imovel-api2.herokuapp.com/cidades'
 
   constructor(
     private httpclient: HttpClient
