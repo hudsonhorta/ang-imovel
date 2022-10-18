@@ -13,11 +13,11 @@ export class GeralService {
   constructor(
     private httpclient: HttpClient
   ) {
-    // if (window.location.hostname != "localhost") {
-    //   this.apiUrl = "https://ang-imovel-api.herokuapp.com/"
-    // } else {
-    //   this.apiUrl = "api/"
-    // }
+    if (window.location.hostname != "localhost") {
+      this.apiUrl = "https://ang-imovel-api2.herokuapp.com"
+    } else {
+      this.apiUrl = "api/"
+    }
    }
 
   // Headers
@@ -32,7 +32,7 @@ export class GeralService {
   getCidades(): Observable<any> {
     let routeModuleApi = ""
     let UrlBASE = "cidades";
-//    this.url = this.apiUrl + routeModuleApi + UrlBASE
+    this.url = this.apiUrl + routeModuleApi + UrlBASE
 
     return this.httpclient.get<any>(this.url, this.httpOptions)
     .pipe(
