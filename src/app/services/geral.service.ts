@@ -7,17 +7,17 @@ import { catchError, Observable, retry, throwError } from 'rxjs';
 })
 export class GeralService {
 
-  apiUrl = "";
+  apiUrl = "api/";
   url = 'https://ang-imovel-api.herokuapp.com/cidades'
 
   constructor(
     private httpclient: HttpClient
   ) {
-    if (window.location.hostname != "localhost") {
-      this.apiUrl = "https://ang-imovel-api.herokuapp.com/"
-    } else {
-      this.apiUrl = "api/"
-    }
+    // if (window.location.hostname != "localhost") {
+    //   this.apiUrl = "https://ang-imovel-api.herokuapp.com/"
+    // } else {
+    //   this.apiUrl = "api/"
+    // }
    }
 
   // Headers
