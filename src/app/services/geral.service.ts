@@ -14,7 +14,7 @@ export class GeralService {
     private httpclient: HttpClient
   ) {
     if (window.location.hostname != "localhost") {
-      this.apiUrl = "https://ang-imovel-api2.herokuapp.com"
+      this.apiUrl = "https://ang-imovel-api2.herokuapp.com/"
     } else {
       this.apiUrl = "api/"
     }
