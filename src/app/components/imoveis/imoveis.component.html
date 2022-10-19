@@ -1,6 +1,6 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Cadastro de Imóveis</h1>
+  <h1 class="h3 mb-0 text-gray-800">Cadastro de Imóveis 2</h1>
 </div>
 
 <div class="row">
@@ -144,78 +144,23 @@
         </div>
         <div class="col-sm-3">
           <label for="cidade">Cidade</label>
-          <select class="form-control" name="cidade" id="cidade">
-            <option value="0">Selecione</option>
-            <option value="77">Acre / AC</option>
-            <option value="9">Américo Brasiliense / SP</option>
-            <option value="83">Angra dos Reis / RJ</option>
-            <option value="8">Araraquara / SP</option>
-            <option value="99">Armação dos Búzios / RJ</option>
-            <option value="89">BARIRI / SP</option>
-            <option value="67">Bastos / SP</option>
-            <option value="80">Camaçari / BA</option>
-            <option value="94">Camboriu / SC</option>
-            <option value="106">Campina Grande do Sul / PR</option>
-            <option value="79">Campinas / SP</option>
-            <option value="69">Caraguatatuba / SP</option>
-            <option value="104">Caxias do Sul / SP</option>
-            <option value="92">Cuiabá / MT</option>
-            <option value="100">Curitiba / PR</option>
-            <option value="108">garanhuns / PE</option>
-            <option value="112">Guarantã do Norte / MT</option>
-            <option value="54">Guarujá / SP</option>
-            <option value="86">Igarapé / MG</option>
-            <option value="71">Ilha Bela / SP</option>
-            <option value="74">Indaiatuba / SP</option>
-            <option value="103">JACAREI / SP</option>
-            <option value="76">Juazeiro / BA</option>
-            <option value="113">Juiz de fora / MG</option>
-            <option value="109">Lajedo / PE</option>
-            <option value="87">Limeira / SP</option>
-            <option value="97">Macae / RJ</option>
-            <option value="50">Osasco / SP</option>
-            <option value="95">Paulista / PE</option>
-            <option value="75">Petrolina / PE</option>
-            <option value="82">Resende / RJ</option>
-            <option value="96">Rio de Janeiro / RJ</option>
-            <option value="107">SÃO JOÃO NEPOMUCENO / MG</option>
-            <option value="85">São Leopoldo / RS</option>
-            <option value="105">São Paulo / SP</option>
-            <option value="70">São Sebastião / SP</option>
-            <option value="68">Ubatuba / SP</option>
-          </select>
+          <ng-select [items]="cidades" bindLabel="nome" bindValue="id" id="cidade" name="cidade" [(ngModel)]="selCidade" (change)="carregaBairro()">
+          </ng-select>
         </div>
         <div class="col-sm-3">
-            <label for="bairro">Bairro</label>
-            <select class="form-control" name="bairro" id="bairro">
-              <option value="0">Selecione a Cidade</option>
-            </select>
-          </div>
+          <label for="bairro">Bairro</label>
+          <ng-select [items]="bairros" bindLabel="nome" bindValue="id" id="bairro" name="bairro" [(ngModel)]="selBairro">
+          </ng-select>
         </div>
-
-      <div class="form-group">
-        <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
       </div>
       <div class="form-group row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <input type="password" class="form-control form-control-user" id="exampleInputPassword"
-            placeholder="Password">
-        </div>
-        <div class="col-sm-6">
-          <input type="password" class="form-control form-control-user" id="exampleRepeatPassword"
-            placeholder="Repeat Password">
+        <div class="col-sm-12 text-right">
+          <button class="btn btn-primary" style="margin-left: 3px;" (click)="novoImovel()">Salvar</button>
+          <button class="btn btn-danger" style="margin-left: 3px;" (click)="cancelarEdicao()">Cancelar</button>
         </div>
       </div>
-      <a href="login.html" class="btn btn-primary btn-user btn-block">
-        Register Account
-      </a>
-      <hr>
-      <a href="index.html" class="btn btn-google btn-user btn-block">
-        <i class="fab fa-google fa-fw"></i> Register with Google
-      </a>
-      <a href="index.html" class="btn btn-facebook btn-user btn-block">
-        <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-      </a>
+
+     
     </form>
   </div>
 </div>

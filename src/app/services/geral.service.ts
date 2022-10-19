@@ -7,8 +7,10 @@ import { catchError, Observable, retry, throwError } from 'rxjs';
 })
 export class GeralService {
 
+  token: string = ''
   apiUrl = "api/";
   url = 'https://ang-imovel-api2.herokuapp.com/cidades'
+  optToken: any
 
   constructor(
     private httpclient: HttpClient
@@ -22,16 +24,47 @@ export class GeralService {
 
   // Headers
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'GET',
-    'Access-Control-Allow-Origin': '*' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  // get
-  getCidades(): Observable<any> {
+  lerToken(): Observable<any> {
+    let dados = { 
+      "user": "hudson", 
+      "password": "123456" 
+    }
     let routeModuleApi = ""
-    let UrlBASE = "cidades";
+    let UrlBASE = "token";
+    this.url = this.apiUrl + routeModuleApi + UrlBASE
+
+    return this.httpclient.post<any>(this.url, JSON.stringify(dados), this.httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    )
+  }
+
+  getCidades(): Observable<any> {
+  //   this.lerToken().subscribe((retorno: any) => {
+  //      this.token = retorno['token']
+  //      localStorage.setItem("token", this.token)
+  //     })   
+
+  //    let routeModuleApi = ""
+  //    let UrlBASE = "cidades";
+  //  this.url = this.apiUrl + routeModuleApi + UrlBASE
+
+  //  let opt =  new HttpHeaders().set("angtoken", this.token)
+  //  console.log("localStorage:" + localStorage.getItem("token"));
+   return this.httpclient.get<any>(this.url, this.httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    )
+  }
+
+  getBairros(idCidade:any): Observable<any> {
+    let routeModuleApi = ""
+    let UrlBASE = "bairro/" + idCidade;
     this.url = this.apiUrl + routeModuleApi + UrlBASE
 
     return this.httpclient.get<any>(this.url, this.httpOptions)
