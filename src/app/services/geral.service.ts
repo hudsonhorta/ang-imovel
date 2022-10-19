@@ -20,62 +20,60 @@ export class GeralService {
     } else {
       this.apiUrl = "api/"
     }
-   }
+  }
 
   // Headers
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Methods': 'GET',
+      'Access-Control-Allow-Origin': '*'
+    })
   }
 
   lerToken(): Observable<any> {
-    let dados = { 
-      "user": "hudson", 
-      "password": "123456" 
+    let dados = {
+      "user": "hudson",
+      "password": "123456"
     }
     let routeModuleApi = ""
     let UrlBASE = "token";
     this.url = this.apiUrl + routeModuleApi + UrlBASE
 
     return this.httpclient.post<any>(this.url, JSON.stringify(dados), this.httpOptions)
-    .pipe(
-      retry(2),
-      catchError(this.handleError)
-    )
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
   }
 
   getCidades(): Observable<any> {
-  //   this.lerToken().subscribe((retorno: any) => {
-  //      this.token = retorno['token']
-  //      localStorage.setItem("token", this.token)
-  //     })   
+    let routeModuleApi = ""
+    let UrlBASE = "cidades";
+    this.url = this.apiUrl + routeModuleApi + UrlBASE
 
-  //    let routeModuleApi = ""
-  //    let UrlBASE = "cidades";
-  //  this.url = this.apiUrl + routeModuleApi + UrlBASE
-
-  //  let opt =  new HttpHeaders().set("angtoken", this.token)
-  //  console.log("localStorage:" + localStorage.getItem("token"));
-   return this.httpclient.get<any>(this.url, this.httpOptions)
-    .pipe(
-      retry(2),
-      catchError(this.handleError)
-    )
+    return this.httpclient.get<any>(this.url, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
   }
 
-  getBairros(idCidade:any): Observable<any> {
+  getBairros(idCidade: any): Observable<any> {
     let routeModuleApi = ""
     let UrlBASE = "bairro/" + idCidade;
     this.url = this.apiUrl + routeModuleApi + UrlBASE
 
     return this.httpclient.get<any>(this.url, this.httpOptions)
-    .pipe(
-      retry(2),
-      catchError(this.handleError)
-    )
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
   }
 
-   // Manipulação de erros
-   handleError(error: HttpErrorResponse) {
+  // Manipulação de erros
+  handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       // Erro ocorreu no lado do client

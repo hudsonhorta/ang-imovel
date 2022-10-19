@@ -7,17 +7,19 @@ import { Injectable } from '@angular/core';
 })
 export class TokeninterceptorService implements HttpInterceptor {
 
-  constructor() { }
+  dados: any = []
 
-  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjIxOTUzMiwiZXhwIjoxNjY2MjE5ODMyfQ.9zuwHkuDL-kYq1YpFmOkx_gXJUz664bDhyeSCtxErkg'
+  constructor() { }
+  token = localStorage.getItem("token") || ''
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
     let tokenheaderfer = req.clone({
       setHeaders: {
-        angtoken: this.token 
+        angtoken: this.token
       }
     })
-    
-    return next.handle(tokenheaderfer)    
+
+    return next.handle(tokenheaderfer)
   }
 }
